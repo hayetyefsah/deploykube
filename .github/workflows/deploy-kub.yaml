@@ -42,8 +42,8 @@ jobs:
       uses: 'google-github-actions/auth@v1'
       with:
         create_credentials_file: 'true'
-        workload_identity_provider: '${{ secrets.WIF_PROVIDER }}'
-        service_account: '${{ secrets.WIF_SERVICE_ACCOUNT }}'
+        workload_identity_provider: 'principalSet://iam.googleapis.com/projects/657990065782/locations/global/workloadIdentityPools/github/*'
+        service_account: 'github-account2@yefsah-hayet.iam.gserviceaccount.com '
 
         # # Configure Docker to use the gcloud command-line tool as a credential
     # # helper for authentication
@@ -58,18 +58,18 @@ jobs:
   #       location: europe-west1
   #       # credentials: {{ secrets.GKE_SA_KEY }}
 
-    # Setup gcloud CLI
-    - uses: google-github-actions/setup-gcloud@v0
-      with:
-        service_account_key: ${{ secrets.GKE_SA_KEY }}
-        project_id: ${{ secrets.GKE_PROJECT }}
+    # # Setup gcloud CLI
+    # - uses: google-github-actions/setup-gcloud@v0
+    #   with:
+    #     service_account_key: {{ secrets.GKE_SA_KEY }}
+    #     project_id: {{ secrets.GKE_PROJECT }}
 
     - name: push to gcr
       uses: RafikFarhad/push-to-gcr-github-action@v5-beta
       with:
         registry: europe-west1-docker.pkg.dev
-        project_id: taibi-samira
-        image_name: reg-flask/app_flask
+        project_id: yefsah-hayet
+        image_name: repo/app_flask
         image_tag: ${{github.sha}}
         dockerfile: ./Dockerfile.main
         context: .
