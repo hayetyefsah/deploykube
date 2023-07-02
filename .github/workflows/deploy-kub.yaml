@@ -77,7 +77,6 @@ jobs:
         image_tag: ${{github.sha}}
         dockerfile: ./Dockerfile.main
         context: .
-        target: build
 
 
     # # Configure Docker to use the gcloud command-line tool as a credential
