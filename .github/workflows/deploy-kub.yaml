@@ -71,12 +71,13 @@ jobs:
       uses: RafikFarhad/push-to-gcr-github-action@v5-beta
       with:
         gcloud_service_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
-        registry: europe-west1-docker.pkg.dev
+        registry: gcr.io
         project_id: yefsah-hayet
         image_name: repo/app_flask
         image_tag: ${{github.sha}}
         dockerfile: ./Dockerfile.main
         context: .
+        target: build
 
 
     # # Configure Docker to use the gcloud command-line tool as a credential
