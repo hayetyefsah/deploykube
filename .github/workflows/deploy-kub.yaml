@@ -41,9 +41,8 @@ jobs:
       id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
-        create_credentials_file: 'true'
-        workload_identity_provider: secret.workload_identity_provider
-        service_account: secret.service_account
+        workload_identity_provider: ${{ secrets.workload_identity_provider }}
+        service_account: ${{ secrets.service_account }}
 
         # # Configure Docker to use the gcloud command-line tool as a credential
     # # helper for authentication
