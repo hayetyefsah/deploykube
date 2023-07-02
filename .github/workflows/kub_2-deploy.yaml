@@ -69,7 +69,7 @@ jobs:
   # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        echo pdw
+        echo $pdw
         kubectl apply -f ../..manifest.yaml
 #./kustomize edit set image europe-west1-docker.pkg.dev/yefsah-hayet/repo:$GITHUB_SHA
 
