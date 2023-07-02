@@ -45,6 +45,7 @@ jobs:
           #'principalSet://iam.googleapis.com/projects/657990065782/locations/global/workloadIdentityPools/acount-test/*'
           #
         service_account: ${{ secrets.service_account }}
+        create_credentials_file: 'true'
           #'github-account2@yefsah-hayet.iam.gserviceaccount.com'
           #{{ secrets.service_account }}
 
