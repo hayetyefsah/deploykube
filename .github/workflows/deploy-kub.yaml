@@ -66,7 +66,7 @@ jobs:
     - name: push to gcr
       uses: RafikFarhad/push-to-gcr-github-action@v5-beta
       with:
-        registry: europe-west1-docker.pkg.dev
+        registry: gcr.io
         project_id: yefsah-hayet
         image_name: repo/app_flask
         image_tag: ${{github.sha}}
