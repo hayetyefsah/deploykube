@@ -15,7 +15,7 @@
 on:
   push:
     branches:
-      - 'deploy'
+      - 'main'
 
 name: 'Connect to GCP instance via ssh and run a script'
 env:
