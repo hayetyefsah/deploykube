@@ -71,7 +71,7 @@ jobs:
       uses: RafikFarhad/push-to-gcr-github-action@v5-beta
       with:
         gcloud_service_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
-        registry: gcr.io
+        registry: europe.gcr.io
         project_id: yefsah-hayet
         image_name: repo/app_flask
         image_tag: ${{github.sha}}
