@@ -43,7 +43,7 @@ jobs:
         workload_identity_provider: '${{ secrets.workload_identity_provider }}'
         service_account: '${{ secrets.service_account }}'
     - name: auth
-      run: gcloud config set ${{ secrets.service_account }}
+      run: gcloud config set account ${{ secrets.service_account }}
 
 #     - name: 'SSH to GCP instance'
 #       id: 'ssh'
