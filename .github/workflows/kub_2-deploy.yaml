@@ -54,11 +54,12 @@ jobs:
         context: .
 
       # # Get the GKE credentials so we can deploy to the cluster
-    - uses: google-github-actions/get-gke-credentials@v0
+    - name: auth gke
+      uses: google-github-actions/get-gke-credentials@v0
       with:
         cluster_name: app-cluster
         location: europe-west1
-        credentials: ${{ secrets.GCLOUD_SERVICE_KEY}}
+        #credentials: {{ secrets.GCLOUD_SERVICE_KEY}}
 
     - name: Set up Kustomize
       run: |-
@@ -68,7 +69,8 @@ jobs:
   # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        ./kustomize edit set image europe-west1-docker.pkg.dev/yefsah-hayet/repo:$GITHUB_SHA
-  #       ./kustomize build ./manifest.yaml | kubectl apply -f -
+        kubectl apply -f ./manifest
+#./kustomize edit set image europe-west1-docker.pkg.dev/yefsah-hayet/repo:$GITHUB_SHA
+
 
 
