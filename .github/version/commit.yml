@@ -1,4 +1,4 @@
-name: Get Commit Message on Merge
+kubectl port-forwardname: Get Commit Message on Merge
 on:
   pull_request:
     types:
