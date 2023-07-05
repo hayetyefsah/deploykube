@@ -1,40 +1,40 @@
-#adservice deployment
+#appflask deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: adservice
-  name: adservice
+    app: appflask
+  name: appflask
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: adservice
+      app: appflask
   template:
     metadata:
       labels:
-        app: adservice
+        app: appflask
     spec:
       containers:
-        - image: nginx
-          name: adservice
+        - image: europe-west1-docker.pkg.dev/yefsah-hayet/repo/app-flask:cc747bc1ee08ef83e27a14c0d658c34b69cbf1f3
+          name: appflask
           ports:
-            - containerPort: 80
-              name: adservice
+            - containerPort: 5011
+              name: appflask
 
 ---
-#adservice service
+#appflask service
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: adservice
-  name: adservice
+    app: appflask
+  name: appflask
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
-  - name: "adservice"
-    port: 80
-    targetPort: 80
+  - name: "appflask"
+    port: 5011
+    targetPort: 5011
   selector:
-    app: adservice
+    app: appflask
